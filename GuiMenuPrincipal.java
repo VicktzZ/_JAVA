@@ -1,41 +1,58 @@
-import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-
-public class GuiMenuPrincipal extends JFrame {
-    private Container contentPane;    
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class GuiMenuPrincipal extends JFrame{
+    private Container contentPane;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnExemplos;
     private JMenuItem miSair, miBotao;
-
-    public GuiMenuPrincipal() {
+    
+    public GuiMenuPrincipal(){
         inicializarComponentes();
-        definirEventos(); 
+        definirEventos();
     }
-
-    private void inicializarComponentes() {
-        setTitle("Menu Principal");
-        setBounds(0, 0, 800, 600);
-        contentPane = get.contentPane();
-        mnBarra = new JMenuBar();
-        mnArquivo  = new JMenu("Menu");
-        mnArquivo.setMnemonic("A");
-        mnExemplos = new JMenu("Exemplos");
-        mnExemplos.setMnemonic("E");
-        miSair = new JMenuItem("Sair", new ImageIcon("icones/sair.png"));
-        miSair.setAccelerator(.getkeyStroke(KeyEvent.VK_S, ActionEvent.ALT_MASK));
-        miBotao = new JMenuItem("Botao");
-        mnArquivo.add(miSair);
-        mnExemplos.add(miBotao);
-        mnBarra.add(mnArquivo);
-        mnBarra.add(mnExemplos);
-        setJMenuBar(mnBarra);
+    
+    private void inicializarComponentes(){
+    setTitle("Menu Principal");
+    setBounds(0, 0, 800, 600);
+    contentPane = getContentPane();
+    mnBarra = new JMenuBar();
+    mnArquivo = new JMenu("Menu");
+    mnArquivo.setMnemonic('A');
+    mnExemplos = new JMenu("Exemplos");
+    mnExemplos.setMnemonic('E');
+    miSair = new JMenuItem("Sair", new ImageIcon("icones/sair.png"));
+    miSair.setAccelerator(KeyStroke.getKeyStroke(
+            KeyEvent.VK_S, ActionEvent.ALT_MASK));
+    miBotao = new JMenuItem("Botao");
+    mnArquivo.add(miSair);
+    mnExemplos.add(miBotao);
+    mnBarra.add(mnArquivo);
+    mnBarra.add(mnExemplos);
+    setJMenuBar(mnBarra);
     }
-
-    private void definirEventos() {
-        mi.Sair.addActionListener(new ActionListener() {
-            public void actionPerformed()
-        })
-       
+    
+    private void definirEventos(){
+        miSair.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                System.exit(0);
+            }
+        });
+        
+        miBotao.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+            //aqui vai o código para chamar o exemplo8.3
+            }
+        });
+    }
+    
+    public static void abrir(){
+        GuiMenuPrincipal frame = new GuiMenuPrincipal();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Dimension tela = Toolkit.getDefaultToolkit()
+                .getScreenSize();
+        frame.setLocation((tela.width - frame.getSize().width) / 2,
+        (tela.height - frame.getSize().height) / 2);
+        frame.setVisible(true);
+    }
 }
