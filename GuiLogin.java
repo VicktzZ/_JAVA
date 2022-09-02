@@ -1,7 +1,14 @@
-import javax.swing.*;
-import javafx.event.ActionEvent;
 import java.awt.Dimension;
-import java.awt.event;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import javafx.event.ActionEvent;
 
 public class GuiLogin extends JFrame {
     private JTextField tfLogin;
@@ -10,7 +17,7 @@ public class GuiLogin extends JFrame {
     private JButton btLogar;
     private JButton btCancelar;
     private JPasswordField pfSenha;
-    private static GuiLogin frame;
+    private static JPasswordField frame;
 
     public GuiLogin()
     {
